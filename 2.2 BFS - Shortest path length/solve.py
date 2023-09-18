@@ -19,25 +19,27 @@ def bfs_path_length(graph, first_node):
     q = Queue()
     
     distance[first_node] = 0
-    visitados = set()
+    visited = set()
+    visibles = set()
     q.enqueue(first_node)
     
     while not q.isEmpty():
          
         node = q.dequeue()
-        visitados.add(node)
+        visited.add(node)
          
         neighbors = set(graph.neighbors(node))
          
         for neighbor in neighbors:
             current_distance = distance[node]
             
-            if neighbor not in visitados:
+            if neighbor not in visited and neighbor not in visibles:
                 t_distance = current_distance + 1
                 if t_distance < distance[neighbor]:
                     distance[neighbor] = t_distance
                 
                 q.enqueue(neighbor)
+                visibles.add(neighbor)
     
 
     return distance
