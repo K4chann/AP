@@ -28,9 +28,7 @@ def bfs_path_length(graph, first_node):
         node = q.dequeue()
         visited.add(node)
          
-        neighbors = set(graph.neighbors(node))
-         
-        for neighbor in neighbors:
+        for neighbor in graph.neighbors(node):
             current_distance = distance[node]
             
             if neighbor not in visited and neighbor not in visibles:
