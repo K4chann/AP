@@ -19,9 +19,9 @@ def bfs_path_length(graph, first_node):
     q = Queue()
     
     distance[first_node] = 0
-    visited = set()
-    visibles = set()
-    q.enqueue(first_node)
+    visited = set()                  # (visited) Este conjunto nos permitirá saber los nodos que hemos visitado
+    visibles = set()                 # (visibles) Este conunto nos permitirá saber los nodos que hemos podido ver,
+    q.enqueue(first_node)            # sin necesidad de que hayan sido visitados.
     
     while not q.isEmpty():
          
@@ -31,13 +31,14 @@ def bfs_path_length(graph, first_node):
         for neighbor in graph.neighbors(node):
             current_distance = distance[node]
             
-            if neighbor not in visited and neighbor not in visibles:
-                t_distance = current_distance + 1
-                if t_distance < distance[neighbor]:
-                    distance[neighbor] = t_distance
+            if neighbor not in visited and neighbor not in visibles: # Aunque esta comprobación de not in visited & not in visibles parezca innecesaria,
+                t_distance = current_distance + 1                    # para un grafo de 8 nodos y 14 aristas pasa de 25 iteraciones a sólo 8 iteraciones.
+
+                if t_distance < distance[neighbor]:                  # Calculamos una distancia tentativa, aunque se pueda hacer solo comprobando si distance[neighbor] == 'inf'
+                    distance[neighbor] = t_distance                  # así podremos dejar el código enfocado para expandirlo al algoritmo de Dijkstra.
                 
                 q.enqueue(neighbor)
                 visibles.add(neighbor)
     
 
-    return distance
+    return dict(sorted(distance.items()))
