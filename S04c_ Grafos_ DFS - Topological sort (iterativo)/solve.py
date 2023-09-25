@@ -1,5 +1,6 @@
 import networkx as nx
 from simple_stack import Stack
+import random
 
 def dfs_topological_sort(G):
     """
@@ -29,7 +30,9 @@ def dfs_topological_sort(G):
         
     s = Stack()
     order = {node: None for node in G.nodes()}
-    s.push(1)
+    s.push(
+        list(G.nodes())[random.randint(0, len(G) - 1)]
+    )
     i = 0
 
     while not s.is_empty():
