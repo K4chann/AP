@@ -31,7 +31,7 @@ def dfs_topological_sort(G):
         # 1. Añade código aqui
         visibleNodes.add(u)
         
-        for neighbor in G.neighbors(u):
+        for neighbor in G.successors(u):
             if neighbor not in visibleNodes:
                 dfs(neighbor)
         
