@@ -1,10 +1,9 @@
 import networkx as nx
 from simple_stack import Stack
-import random
 
 def dfs_topological_sort(G):
     """
-    Compute one topological sort of the given graph.
+    Compute one topological sort of the given G.
     """
     
     # La solucion que retorna esta función es un diccionario de Python.
@@ -22,35 +21,35 @@ def dfs_topological_sort(G):
 
     N = G.number_of_nodes()
     
-    visibles = set()  # En este ejercicio utilizamos un set
+    visibleNodes = set()  # En este ejercicio utilizamos un set
                           # para recordar los nodos visibles
     order = {}
 
     # solve it here! ------------------------------------------------
+
+    def dfs_iterative(u, s: Stack):
+        nonlocal N
+        #  1. Añade código aqui
+        s.push(u)
         
-    s = Stack()
-    order = {node: None for node in G.nodes()}
-    s.push(
-        list(G.nodes())[random.randint(0, len(G) - 1)]
-    )
-
-    while not s.is_empty():
-        node = s.peek()
-        visibles.add(node)
-
-        for neighbor in G.successors(node):
-            if neighbor not in visibles:
-                s.push(neighbor)
+        while not s.isEmpty():
             
-        if s.peek() == node:
-            G.remove_node(node)
-            s.pop()
-            order[node] = N
-            N -= 1
-        
-        if s.is_empty() and bool(G):
-            s.push(
-                next(iter(G.nodes()))
-            )
+            node = s.peek()
+            visibleNodes.add(node)
+            
+            for neighbor in G.successors(node):
+                if neighbor not in visibleNodes:
+                    s.push(neighbor)
+            
+            if s.peek() == node:
+                s.pop()
+                order[node] = N
+                N -= 1
 
+    #  2. Añade código también aqui
+    s = Stack()
+    for node in G:
+        if node not in visibleNodes:
+            dfs_iterative(node, s)
+    
     return order
