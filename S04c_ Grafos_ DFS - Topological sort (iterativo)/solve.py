@@ -33,15 +33,12 @@ def dfs_topological_sort(G):
     s.push(
         list(G.nodes())[random.randint(0, len(G) - 1)]
     )
-    i = 0
 
     while not s.is_empty():
-        i += 1
         node = s.peek()
         visibles.add(node)
 
         for neighbor in G.successors(node):
-            i += 1
             if neighbor not in visibles:
                 s.push(neighbor)
             
