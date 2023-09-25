@@ -27,7 +27,7 @@ def dfs_topological_sort(G: nx.DiGraph):
 
     # solve it here! ------------------------------------------------
 
-    def dfs_iterative(u, s: Stack):
+    def dfs_iterative(u):
         nonlocal N
         #  1. Añade código aqui
         s.push(u)
@@ -42,14 +42,13 @@ def dfs_topological_sort(G: nx.DiGraph):
                     s.push(neighbor)
             
             if s.peek() == node:
-                s.pop()
-                order[node] = N
+                order[s.pop()] = N
                 N -= 1
 
     #  2. Añade código también aqui
     s = Stack()
     for node in G:
         if node not in visibleNodes:
-            dfs_iterative(node, s)
+            dfs_iterative(node)
     
     return order
