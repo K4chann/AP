@@ -5,4 +5,4 @@ Nótese que las soluciones a dichas prácticas no tiene por que ser las más óp
 
 ## Sobre planteo de dudas en cuanto a los ejercicios
 
-No me pregunten por WhatsApp, si quieren, planteen su duda y se van ayudando en el foro de este servidor https://discord.gg/JBQknmBxA9
+No me pregunten por WhatsApp, si quieren, planteen su duda y se van ayudando en el foro de este servidor https://discord.gg/JBQknmBxA9. Yo mismo trataré de ayudarles también.
