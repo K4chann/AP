@@ -24,6 +24,8 @@ def next_number(digits, base):
 
         carry = next // base
 
-        next_digits[digit] = 0 if carry == 1 else next
-
-    return next_digits
+        if carry == 0:
+            next_digits[digit] = next
+            return next_digits
+        else:
+            next_digits[digit] = 0
