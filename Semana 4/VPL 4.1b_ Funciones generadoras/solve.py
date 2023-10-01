@@ -10,10 +10,12 @@ def next_number(digits, base):
         next = next_digits[digit] + carry
 
         carry = next // base
-
-        next_digits[digit] = 0 if carry == 1 else next
-
-    return next_digits
+        
+        if carry == 0:
+            next_digits[digit] = next
+            return next_digits
+        else:
+            next_digits[digit] = 0
     
 # ----------------------------------------------------------
 
@@ -32,6 +34,7 @@ class My_Iterator:
 
         while d != ([self.base - 1] * self.num_digits):
             d = next_number(d, self.base)
+            print(d)
             yield d
         
         # Cuando no quedan valores simplemente retornamos
