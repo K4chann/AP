@@ -28,8 +28,7 @@ class My_Iterator:
     def next(self):
         # 2.2 Añade código aqui
         # ...
-        d = [0] * self.num_digits
-        d[-1] = -1
+        d = [0] * (self.num_digits - 1) + [-1]
 
         while d != ([self.base - 1] * self.num_digits):
             d = next_number(d, self.base)
