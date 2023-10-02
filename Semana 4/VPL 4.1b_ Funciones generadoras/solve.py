@@ -10,12 +10,14 @@ def next_number(digits, base):
         next = next_digits[digit] + carry
 
         carry = next // base
-        
+
         if carry == 0:
             next_digits[digit] = next
             return next_digits
-        else:
-            next_digits[digit] = 0
+            
+        next_digits[digit] = 0
+        
+    return next_digits
     
 # ----------------------------------------------------------
 
