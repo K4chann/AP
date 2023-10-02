@@ -16,6 +16,8 @@ def next_number(digits, base):
             return next_digits
         else:
             next_digits[digit] = 0
+
+    return next_digits
     
 # ----------------------------------------------------------
 
