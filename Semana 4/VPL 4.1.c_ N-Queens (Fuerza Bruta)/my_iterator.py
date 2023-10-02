@@ -10,13 +10,13 @@ def next_number(digits, base):
         next = next_digits[digit] + carry
 
         carry = next // base
-
+        
         if carry == 0:
             next_digits[digit] = next
             return next_digits
-            
+
         next_digits[digit] = 0
-        
+            
     return next_digits
     
 # ----------------------------------------------------------
@@ -32,8 +32,7 @@ class My_Iterator:
     def next(self):
         # 2.2 Añade código aqui
         # ...
-        d = [0] * self.num_digits
-        d[-1] = -1
+        d = [0] * (self.num_digits - 1) + [-1]
 
         while d != ([self.base - 1] * self.num_digits):
             d = next_number(d, self.base)
