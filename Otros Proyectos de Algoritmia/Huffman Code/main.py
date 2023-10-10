@@ -22,7 +22,7 @@ def solve_huffman_code(input_text: str) -> dict:
         if letre not in letres.keys():
             letres[letre] = input_text.count(letre)
 
-    letres = {"a": 12, "b": 2, "c": 7, "d": 13, "e": 14, "f": 85}
+    # letres = {"a": 12, "b": 2, "c": 7, "d": 13, "e": 14, "f": 85}
 
     # Creamos los nodos con cada carácter
     for letre, freq in letres.items():
