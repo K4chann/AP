@@ -11,5 +11,8 @@ def solve(items, capacity):
             capacity -= w
             value += v
             taken.append(index + 1)
+
+            if capacity == 0:
+                break
     
     return taken, value
